@@ -62,7 +62,7 @@ class loginScreen extends StatelessWidget {
 
                                   ),
                                   cursorColor: Colors.red,
-                                  cursorHeight:20,
+                                  //cursorHeight:20,
                                 ),
                                 SizedBox(
                                   height: 30,
@@ -76,7 +76,7 @@ class loginScreen extends StatelessWidget {
                                   ),
                                   cursorColor: Colors.red,
                                   obscureText: true,
-                                  cursorHeight:20,
+                                  //cursorHeight:20,
                                 ),
                                 SizedBox(
                                   height: 100,

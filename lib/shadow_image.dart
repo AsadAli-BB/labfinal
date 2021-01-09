@@ -6,10 +6,10 @@ class ShadowImage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white,
+        color: Colors.cyan,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.6),
+            color: Colors.black26.withOpacity(0.6),
             blurRadius: 25.0, // has the effect of softening the shadow
             spreadRadius: 0.0, // has the effect of extending the shadow
             offset: Offset(

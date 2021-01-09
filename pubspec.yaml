@@ -52,7 +52,6 @@ dependencies:
   flutter_colorpicker: any
   intl: any
   firebase_core: ^0.5.3
-  firebase_analytics: any
   flutter_markdown: any
 
 

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Todo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.black12,
         textTheme: TextTheme(
           headline: TextStyle(fontSize: 32.0, fontWeight: FontWeight.w400),
           title: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w500),
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage>
       var _tasks = model.tasks;
       var _todos = model.todos;
       var backgroundColor = _tasks.isEmpty || _tasks.length == _currentPageIndex
-          ? Colors.blueGrey
+          ? Colors.brown
           : ColorUtils.getColorFrom(id: _tasks[_currentPageIndex].color);
       if (!_isLoading) {
         // move the animation value towards upperbound only when loading is complete
@@ -130,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage>
               ? Center(
                   child: CircularProgressIndicator(
                     strokeWidth: 1.0,
-                    valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+                    valueColor: new AlwaysStoppedAnimation<Color>(Colors.lightBlueAccent),
                   ),
                 )
               : FadeTransition(
@@ -151,19 +151,19 @@ class _MyHomePageState extends State<MyHomePage>
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline
-                                    .copyWith(color: Colors.white),
+                                    .copyWith(color: Colors.cyanAccent),
                               ),
                             ),
                             Text(
                               '${DateTimeUtils.currentDate} ${DateTimeUtils.currentMonth}',
                               style: Theme.of(context).textTheme.title.copyWith(
-                                  color: Colors.white.withOpacity(0.7)),
+                                  color: Colors.cyanAccent.withOpacity(0.7)),
                             ),
                             Container(height: 16.0),
                             Text(
                               'You have ${_todos.where((todo) => todo.isCompleted == 0).length} tasks to complete',
                               style: Theme.of(context).textTheme.body1.copyWith(
-                                  color: Colors.white.withOpacity(0.7)),
+                                  color: Colors.cyan.withOpacity(0.7)),
                             ),
                             Container(
                               height: 16.0,
@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage>
                             // Container(
                             //   margin: EdgeInsets.only(top: 42.0),
                             //   child: Text(
-                            //     'TODAY : FEBURARY 13, 2019',
+                            //     'TODAY : FEBURARY 15, 2021',
                             //     style: Theme.of(context)
                             //         .textTheme
                             //         .subtitle
@@ -241,7 +241,7 @@ class _MyHomePageState extends State<MyHomePage>
 class AddPageCard extends StatelessWidget {
   final Color color;
 
-  const AddPageCard({Key key, this.color = Colors.black}) : super(key: key);
+  const AddPageCard({Key key, this.color = Colors.black26}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -253,7 +253,7 @@ class AddPageCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
       child: Material(
         borderRadius: BorderRadius.circular(16.0),
-        color: Colors.white,
+        color: Colors.cyanAccent,
         child: InkWell(
           onTap: () {
             Navigator.push(
@@ -346,7 +346,7 @@ class TaskCard extends StatelessWidget {
         ),
         elevation: 4.0,
         margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
-        color: Colors.white,
+        color: Colors.cyan,
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
           child: Column(
@@ -372,7 +372,7 @@ class TaskCard extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .body1
-                        .copyWith(color: Colors.grey[500]),
+                        .copyWith(color: Colors.white12[500]),
                   ),
                 ),
               ),

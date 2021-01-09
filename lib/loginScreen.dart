@@ -31,92 +31,117 @@ class loginScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.cyan[200],
           body: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // Padding(
+                    // padding: const EdgeInsets.only(top: 20.0),
+                    // child: Image.asset('images/logo-removebg.png',
+                    // height: 200,
+                    // ),
+                    // ),
 
-                  Text('Login & SignUP Screen' , style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),),
-                  SizedBox(
-                    height: 100,
-                  ),
-                  Container(
+                    Padding(
+                      padding: const EdgeInsets.only(top:100.0),
+                      child: Text('SIGN IN' , style: TextStyle(fontSize: 40,color: Colors.white, fontWeight: FontWeight.bold),),
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Container(
 
-                    child: SingleChildScrollView(
-                      child: Container(
-                        alignment: Alignment.topCenter,
-                        margin: EdgeInsets.symmetric(horizontal: 30),
-                        child: Center(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Text('Enter E-Mail'),
-                                TextField(
-                                  controller: nameController,
-                                  decoration: InputDecoration(
-                                    focusColor: Colors.blue,
+                      child: SingleChildScrollView(
+                        child: Container(
+                          alignment: Alignment.topCenter,
+                          margin: EdgeInsets.symmetric(horizontal: 30),
+                          child: Center(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  //  Text('ENTER E-MAIL', style: TextStyle(color: Colors.white),),
+                                  TextField(
+                                    controller: nameController,
+                                    decoration: InputDecoration(
+                                      icon: Icon(
+                                        Icons.mail,
+                                        color: Colors.black,
+                                      ),
+                                      hintText: "ENTER E-MAIL",
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      focusColor: Colors.blue,
 
+                                    ),
+                                    cursorColor: Colors.red,
+                                    //cursorHeight:20,
                                   ),
-                                  cursorColor: Colors.red,
-                                  //cursorHeight:20,
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Text('Enter Password'),
-                                TextField(
-                                  controller: passwordController,
-                                  decoration: InputDecoration(
-                                    focusColor: Colors.blue,
-
+                                  SizedBox(
+                                    height: 30,
                                   ),
-                                  cursorColor: Colors.red,
-                                  obscureText: true,
-                                  //cursorHeight:20,
-                                ),
-                                SizedBox(
-                                  height: 100,
-                                ),
-                                MaterialButton(
-                                  elevation: 0,
-                                  minWidth: double.maxFinite,
-                                  height: 50,
-                                  onPressed: () => logIn(context),
-                                  color: logoColor,
-                                  child: Text('Login',
-                                      style: TextStyle(color: Colors.white, fontSize: 16)),
-                                  textColor: Colors.white,
-                                ),
-                                SizedBox(height: 20),
-                                MaterialButton(
-                                  elevation: 0,
-                                  minWidth: double.maxFinite,
-                                  height: 50,
-                                  onPressed: () => registerUser(context),
-                                  color: Colors.blue,
-                                  child: Text('Register',
-                                      style: TextStyle(color: Colors.white, fontSize: 16)),
-                                  textColor: Colors.white,
-                                ),
-                                SizedBox(height: 20),
-                                SizedBox(height: 100),
+                                  // Text('ENTER PASSWORD', style: TextStyle(color: Colors.white,),),
+                                  TextField(
+                                    controller: passwordController,
+                                    decoration: InputDecoration(
+                                      icon: Icon(
+                                        Icons.lock,
+                                        color: Colors.black,
+                                      ),
+                                      focusColor: Colors.blue,
+                                      hintText: "ENTER PASSWORD",
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
 
-                              ],
+                                    ),
+                                    cursorColor: Colors.red,
+                                    obscureText: true,
+                                    //cursorHeight:20,
+                                  ),
+                                  SizedBox(
+                                    height: 100,
+                                  ),
+                                  MaterialButton(
+                                    elevation: 0,
+                                    minWidth: double.maxFinite,
+                                    height: 50,
+                                    onPressed: () => logIn(context),
+                                    color: Colors.white,
+                                    child: Text('LOGIN',
+                                        style: TextStyle(color: Colors.black, fontSize: 16)),
+                                    textColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 20),
+                                  MaterialButton(
+                                    elevation: 0,
+                                    minWidth: double.maxFinite,
+                                    height: 50,
+                                    onPressed: () => registerUser(context),
+                                    color: Colors.black,
+                                    child: Text('SIGN UP',
+                                        style: TextStyle(color: Colors.white, fontSize: 16)),
+                                    textColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 20),
+                                  SizedBox(height: 100),
+
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
 
-                ],
+                  ],
 
-              ),
-            )
+                ),
+              )
           )),
     );
   }
@@ -174,7 +199,7 @@ class loginScreen extends StatelessWidget {
     final GoogleSignIn googleSignIn = GoogleSignIn();
     await googleSignIn.signOut();
 
-    print("User Signed Out");
+    print("USER SIGNED OUT");
   }
   Future<void> registerUser(context) async{
 
@@ -223,7 +248,7 @@ class loginScreen extends StatelessWidget {
       final User currentUser = _auth.currentUser;
       assert(user.uid == currentUser.uid);
 
-      print('signInWithGoogle succeeded: $user');
+      print('SIGNINWITHGOOGLE SUCCEEDED: $user');
     }
 
     return null;
@@ -236,7 +261,7 @@ class loginScreen extends StatelessWidget {
       UserCredential user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
       if(user!=null){
         Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
-        Fluttertoast.showToast(msg: "Logged In Succesfuly");
+        Fluttertoast.showToast(msg: "LOGGED IN SUCCESFULY");
       }
 
     }
